@@ -1,11 +1,15 @@
 class MoviesController < ApplicationController
 
+	before_filter :get_movie, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@movies = Movie.all
 	end
 
+	def edit
+	end
+
 	def show
-		@movie = Movie.find(params[:id])
 	end
 
 	def new
@@ -21,10 +25,28 @@ class MoviesController < ApplicationController
 			end
 	end
 
+	def update
+			if @movie.update_attributes(sanitized_movie_params)
+				redirect_to movie_path(@movie)
+			else
+				render :edit
+			end
+	end
+
+	def destroy
+			@movie.destroy
+			redirect_to "/movies"
+	end
+
+
 	private
 
 	def sanitized_movie_params
 		params.require(:movie).permit(:title, :director, :release_year, :rating)
+	end
+
+	def get_movie
+		@movie = Movie.find(params[:id])
 	end
 
 end

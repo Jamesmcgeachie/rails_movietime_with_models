@@ -2,7 +2,6 @@
 <th colspan="4">
 All Movies
 </th>
-
 <tr>
     <td>Movie</td>
     <td>Director</td>
@@ -11,7 +10,7 @@ All Movies
 <% if @movies.count > 0 %>
     <% @movies.each do |movie| %>
             <tr>
-                <td><%= movie.title %></td>
+                <td><a href="/movies/<%= movie.id %>"><%= movie.title %></a></td>
                 <td><%= movie.director %></td>
                 <td><%= movie.release_year %></td>
                 <td><%= movie.rating %></td>
@@ -21,3 +20,9 @@ All Movies
         <p>No movies reviewed.</p>
 <% end %>
 </table>
+
+<p> 
+    <form action="/movies/new" method="get">
+    <input type="submit" value="Add a new movie" />
+    </form>
+</p>

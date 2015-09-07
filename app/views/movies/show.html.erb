@@ -4,3 +4,21 @@
 <p>Movie director: <%= @movie.director %></p>
 <p>Release Year: <%= @movie.release_year %></p>
 <p>Movie rating: <%= @movie.rating %></p>
+
+<p> 
+	<form action="/movies/<%= @movie.id %>" method="post">
+	<%= token_tag nil%>
+	<input type="hidden" name="_method" value="delete" />
+	<input type="submit" value="Delete" />
+	</form>
+</p>
+
+<p> 
+	<form action="/movies/<%= @movie.id %>/edit" method="get">
+	<input type="submit" value="Edit" />
+	</form>
+</p>
+
+<p>
+<a href="/movies">Go back to all movies</a>
+</p>
