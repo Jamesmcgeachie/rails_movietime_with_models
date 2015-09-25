@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908005656) do
+ActiveRecord::Schema.define(version: 20150925023210) do
 
   create_table "genres", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150908005656) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "genre_id"
+    t.datetime "time_watched"
   end
 
 end

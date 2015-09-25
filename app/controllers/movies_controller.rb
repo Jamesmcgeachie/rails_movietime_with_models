@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
 	private
 
 	def sanitized_movie_params
-		params.require(:movie).permit(:title, :director, :release_year, :rating)
+		params.require(:movie).permit(:title, :director, :release_year, :rating, :time_watched)
 	end
 
 	def get_movie

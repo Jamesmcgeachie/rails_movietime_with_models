@@ -4,6 +4,7 @@
 <p>Movie director: <%= @movie.director %></p>
 <p>Release Year: <%= @movie.release_year %></p>
 <p>Movie rating: <%= @movie.rating %></p>
+<p>Movie watched on: <%= @movie.time_watched %></p>
 
 <p> 
 	<form action="/movies/<%= @movie.id %>" method="post">
